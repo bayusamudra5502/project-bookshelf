@@ -1,0 +1,23 @@
+{
+  "name": "project-bookshelf",
+  "version": "1.0.0",
+  "description": "Ini adalah project untuk TA kelas Dicoding Frontend Web.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bayusamudra5502/project-bookshelf.git"
+  },
+  "keywords": [],
+  "author": "Bayu Samudra <bayusamudra.55.02.com@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bayusamudra5502/project-bookshelf/issues"
+  },
+  "homepage": "https://github.com/bayusamudra5502/project-bookshelf#readme",
+  "dependencies": {
+    "prettier": "^2.3.1"
+  }
+}

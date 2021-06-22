@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <article class="app-bar">
+        <h1>Bookshelf App</h1>
+        <div class="app-img">
+          <img src="assets/img/book-lover.png" alt="Application Image" />
+        </div>
+        <div class="feature">
+          <h2>Sortir Buku</h2>
+          <label>
+            <input
+              type="text"
+              name="search"
+              placeholder="Masukkan Kata Kunci"
+            />
+            <div class="search-img">
+              <img src="assets/img/cari.png" alt="Cari" />
+            </div>
+          </label>
+        </div>
+        <div class="feature">
+          <h2>Proses Membaca</h2>
+          <div class="progress-container">
+            <div class="progress" id="progress" style="width: 30%"></div>
+          </div>
+          <p>
+            <span id="n-sudah-baca">0</span> dari
+            <span id="n-buku">0</span> buku sudah dibaca.
+          </p>
+        </div>
+      </article>
+      <article class="bookshelf">
+        <section class="books-container">
+          <div class="books-title">
+            <h2>Sedang Dibaca</h2>
+            <div class="controls">
+              <div class="add-control">
+                <img src="assets/img/tambah-data.png" alt="Tambah Data" />
+              </div>
+            </div>
+          </div>
+          <div class="books-data" id="sedang-dibaca">
+            <div class="book">
+              <div class="book-description">
+                <p class="title">Judul Buku 1</p>
+                <p class="pengarang">Oleh Pengarang</p>
+                <p class="tahun">Tahun Terbit</p>
+              </div>
+              <div class="controls">
+                <div class="control edit-buku">
+                  <img src="assets/img/edit.png" alt="Edit Buku" />
+                </div>
+                <div class="control sudah-dibaca">
+                  <img
+                    src="assets/img/tandai-selesai-dibaca.png"
+                    alt="Selesai Dibaca"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="books-container">
+          <div class="books-title">
+            <h2>Sudah Dibaca</h2>
+            <div class="controls">
+              <div class="add-control">
+                <img src="assets/img/tambah-data.png" alt="Tambah Data" />
+              </div>
+            </div>
+          </div>
+          <div class="books-data" id="sudah-dibaca">
+            <div class="book">
+              <div class="book-description">
+                <p class="title">Judul Buku 1</p>
+                <p class="pengarang">Oleh Pengarang</p>
+                <p class="tahun">Tahun Terbit</p>
+              </div>
+              <div class="controls">
+                <div class="control edit-buku">
+                  <img src="assets/img/edit.png" alt="Edit Buku" />
+                </div>
+                <div class="control belum-dibaca">
+                  <img
+                    src="assets/img/tandai-sedang-dibaca.png"
+                    alt="Selesai Dibaca"
+                  />
+                </div>
+                <div class="control hapus">
+                  <img src="assets/img/hapus-data.png" alt="Selesai Dibaca" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
