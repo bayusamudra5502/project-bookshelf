@@ -14,6 +14,7 @@
     />
 
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/script.js" defer></script>
   </head>
   <body>
     <main class="container">
@@ -24,15 +25,13 @@
         </div>
         <div class="feature">
           <h2>Sortir Buku</h2>
-          <label>
+          <label class="search">
             <input
               type="text"
               name="search"
               placeholder="Masukkan Kata Kunci"
             />
-            <div class="search-img">
-              <img src="assets/img/cari.png" alt="Cari" />
-            </div>
+            <img class="search-img" src="assets/img/cari.png" alt="Cari" />
           </label>
         </div>
         <div class="feature">
@@ -51,66 +50,90 @@
           <div class="books-title">
             <h2>Sedang Dibaca</h2>
             <div class="controls">
-              <div class="add-control">
+              <div class="add-control" id="control-not-complete">
                 <img src="assets/img/tambah-data.png" alt="Tambah Data" />
               </div>
             </div>
           </div>
-          <div class="books-data" id="sedang-dibaca">
-            <div class="book">
-              <div class="book-description">
-                <p class="title">Judul Buku 1</p>
-                <p class="pengarang">Oleh Pengarang</p>
-                <p class="tahun">Tahun Terbit</p>
-              </div>
-              <div class="controls">
-                <div class="control edit-buku">
-                  <img src="assets/img/edit.png" alt="Edit Buku" />
-                </div>
-                <div class="control sudah-dibaca">
-                  <img
-                    src="assets/img/tandai-selesai-dibaca.png"
-                    alt="Selesai Dibaca"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="books-data" id="sedang-dibaca"></div>
         </section>
         <section class="books-container">
           <div class="books-title">
             <h2>Sudah Dibaca</h2>
             <div class="controls">
-              <div class="add-control">
+              <div class="add-control" id="control-complete">
                 <img src="assets/img/tambah-data.png" alt="Tambah Data" />
               </div>
             </div>
           </div>
-          <div class="books-data" id="sudah-dibaca">
-            <div class="book">
-              <div class="book-description">
-                <p class="title">Judul Buku 1</p>
-                <p class="pengarang">Oleh Pengarang</p>
-                <p class="tahun">Tahun Terbit</p>
-              </div>
-              <div class="controls">
-                <div class="control edit-buku">
-                  <img src="assets/img/edit.png" alt="Edit Buku" />
-                </div>
-                <div class="control belum-dibaca">
-                  <img
-                    src="assets/img/tandai-sedang-dibaca.png"
-                    alt="Selesai Dibaca"
-                  />
-                </div>
-                <div class="control hapus">
-                  <img src="assets/img/hapus-data.png" alt="Selesai Dibaca" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="books-data" id="sudah-dibaca"></div>
         </section>
       </article>
     </main>
+
+    <div class="overlay">
+      <div id="book-dialog" class="dialog">
+        <div class="dialog-header">
+          <h2>Tambah Data</h2>
+          <div class="close" id="form-close">
+            <img src="assets/img/x.svg" />
+          </div>
+        </div>
+        <form>
+          <div class="form-component">
+            <label for="judul-buku">Judul Buku</label>
+            <input
+              required
+              type="text"
+              id="judul-buku"
+              placeholder="Masukkan Judul Buku"
+              name="title"
+            />
+          </div>
+          <div class="form-component">
+            <label for="pengarang">Pengarang</label>
+            <input
+              required
+              type="text"
+              placeholder="Masukkan Nama Pengarang"
+              id="pengarang"
+              name="author"
+            />
+          </div>
+          <div class="form-component">
+            <label for="tahun-terbit">Tahun Terbit</label>
+            <input
+              required
+              type="number"
+              placeholder="Masukkan Tahun Terbit"
+              id="tahun-terbit"
+              name="year"
+            />
+          </div>
+          <div class="form-component checkbox">
+            <input type="checkbox" name="isCompleted" id="dibaca" />
+            <label for="dibaca">Sudah selesai dibaca</label>
+          </div>
+          <div class="control">
+            <button class="btn submit" id="submit-button">Tambah Data</button>
+          </div>
+        </form>
+      </div>
+      <div id="delete-dialog" class="dialog">
+        <div class="dialog-header">
+          <h2>Peringatan</h2>
+          <div class="close" id="form-close">
+            <img src="assets/img/x.svg" />
+          </div>
+        </div>
+        <div class="content">
+          <p>Apakah anda yakin akan menghapus buku tersebut?</p>
+        </div>
+        <div class="control">
+          <button class="btn link">Batalkan</button>
+          <button class="btn destroy">Hapus Buku</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
