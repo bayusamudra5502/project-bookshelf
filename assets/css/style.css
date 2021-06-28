@@ -10,6 +10,12 @@ body {
   font-size: 16px;
 }
 
+@media screen and (max-width:800px) {
+  html, body{
+    font-size: 13px;
+  }
+}
+
 h1 {
   font-size: 2.3em;
   margin-bottom: 40px;
@@ -27,6 +33,7 @@ body {
 
 .container {
   background-color: white;
+  margin: 20px;
   padding: 20px 50px;
   display: flex;
   width: 100%;
@@ -45,10 +52,17 @@ body {
 
 .app-bar {
   margin-left: 20px;
+  width: 30%;
 }
 
 .app-img {
   margin-bottom: 40px;
+  width: 100%;
+}
+
+.app-img img{
+  width: 100%;
+  max-width: 270px;
 }
 
 .feature {
@@ -112,8 +126,15 @@ body {
   margin: 30px;
   flex-grow: 1;
   max-height: calc(100% - 40px);
-  width: 330px;
+  width: 30%;
 }
+
+
+.books-container{
+  width: 100%;
+  height: fit-content;
+}
+
 
 .books-title {
   display: flex;
@@ -306,4 +327,37 @@ button.link:active {
 mark {
   padding: 5px 0;
   background-color: #ffd7ba;
+}
+
+@media screen and (max-width: 800px) {
+  body{
+    display: block;
+  }
+
+  .bookshelf {
+    flex-direction: column;
+    display: block;
+  }
+
+  .container{
+    padding: 20px;
+    height: fit-content;
+    margin: 10px 0;
+  }
+
+  .books-container{
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container{
+    flex-direction: column;
+  }
+
+  .app-bar{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
 }
