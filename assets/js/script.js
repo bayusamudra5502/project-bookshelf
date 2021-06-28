@@ -93,7 +93,6 @@ function getDataByID(id) {
   return data.filter(({ id: dataId }) => id === dataId)[0];
 }
 
-// DOM TEMPLATE
 function highlight(text, query) {
   if (query === "") {
     return text;
@@ -166,6 +165,14 @@ function bookBuilder({ id, title, author, year, isCompleted }) {
   });
   controlEdit.addEventListener("click", editHandler);
 
+  const imgDelete = elementBuilder("img", null, null, {
+    src: "assets/img/hapus-data.png",
+    alt: "Hapus data",
+  });
+
+  const controlDelete = elementBuilder("div", "control", [imgDelete]);
+  controlDelete.addEventListener("click", deleteHandler);
+
   if (!isCompleted) {
     const imgCompleted = elementBuilder("img", null, null, {
       src: "assets/img/tandai-selesai-dibaca.png",
@@ -181,6 +188,7 @@ function bookBuilder({ id, title, author, year, isCompleted }) {
     controlsEl = elementBuilder("div", "controls", [
       controlEdit,
       controlCompleted,
+      controlDelete,
     ]);
   } else {
     const imgUnCompleted = elementBuilder("img", null, null, {
@@ -198,14 +206,6 @@ function bookBuilder({ id, title, author, year, isCompleted }) {
     );
 
     controlUnCompleted.addEventListener("click", completedToggler);
-
-    const imgDelete = elementBuilder("img", null, null, {
-      src: "assets/img/hapus-data.png",
-      alt: "Hapus data",
-    });
-
-    const controlDelete = elementBuilder("div", "control", [imgDelete]);
-    controlDelete.addEventListener("click", deleteHandler);
 
     controlsEl = elementBuilder("div", "controls", [
       controlEdit,
@@ -367,7 +367,6 @@ function changeIndicator(notCompletedCount, CompletedCount) {
   }%`;
 }
 
-// RENDER MACHINE
 function SearchBooksRender(filter) {
   const filteredData = filterData(fetchData(), filter);
   const highlighted = filteredData.map((data) => ({
@@ -408,7 +407,6 @@ function render(renderObject) {
   completed.forEach((el) => readCompleted.append(el));
 }
 
-// SCRIPT
 window.addEventListener("DOMContentLoaded", () => {
   formDialogGenerator();
   deleteDialogGenerator();
