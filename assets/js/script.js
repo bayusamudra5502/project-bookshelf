@@ -44,7 +44,7 @@ function splitData(dataset) {
   const splittedData = [[], []];
 
   dataset.forEach((data) => {
-    if (!data.isCompleted) {
+    if (!data.isComplete) {
       splittedData[0].push(data);
     } else {
       splittedData[1].push(data);
@@ -137,13 +137,13 @@ function elementBuilder(tag, classes = null, children = null, attributes = {}) {
   return el;
 }
 
-function bookBuilder({ id, title, author, year, isCompleted }) {
+function bookBuilder({ id, title, author, year, isComplete }) {
   const editHandler = () => openEditDialog(id);
   const deleteHandler = () => {
     openDeleteDialog(id);
   };
   const completedToggler = () => {
-    editData(id, { isCompleted: !isCompleted });
+    editData(id, { isComplete: !isComplete });
   };
 
   const titleEl = elementBuilder("p", "title", title);
@@ -173,7 +173,7 @@ function bookBuilder({ id, title, author, year, isCompleted }) {
   const controlDelete = elementBuilder("div", "control", [imgDelete]);
   controlDelete.addEventListener("click", deleteHandler);
 
-  if (!isCompleted) {
+  if (!isComplete) {
     const imgCompleted = elementBuilder("img", null, null, {
       src: "assets/img/tandai-selesai-dibaca.png",
       alt: "Selesai dibaca",
@@ -227,9 +227,9 @@ function openEditDialog(id) {
   overlay.append(overlayNode.form);
 }
 
-function openAddDataDialog(isCompleted = false) {
+function openAddDataDialog(isComplete = false) {
   overlay.style.display = "flex";
-  overlayNode.form.setStateData({ isCompleted });
+  overlayNode.form.setStateData({ isComplete });
   overlayNode.form.setEditMode(false);
   overlay.append(overlayNode.form);
 }
@@ -259,7 +259,7 @@ function formDialogGenerator() {
 
     formInput.forEach((el) => {
       const name = el.name;
-      if (name !== "isCompleted") {
+      if (name !== "isComplete") {
         el.value = formStateData[name] ?? "";
       } else {
         el.checked = formStateData[name];
@@ -272,10 +272,10 @@ function formDialogGenerator() {
     const button = overlayNode.form.querySelector("button");
 
     if (isEditMode) {
-      h2.innnerText = "Edit Data";
+      h2.innerText = "Edit Data";
       button.innerText = "Edit Data";
     } else {
-      h2.innnerText = "Tambah Data";
+      h2.innerText = "Tambah Data";
       button.innerText = "Tambah Data";
     }
 
@@ -285,7 +285,7 @@ function formDialogGenerator() {
   formInput.forEach((input) => {
     input.addEventListener("change", (e) => {
       const name = e.target.name;
-      if (name === "isCompleted") {
+      if (name === "isComplete") {
         formStateData = {
           ...formStateData,
           [name]: e.target.checked,
